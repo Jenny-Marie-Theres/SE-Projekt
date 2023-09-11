@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Konto löschen</h2>
+<mat-dialog-content>
+ Sind Sie sicher, dass Sie ihr Konto unwiederruflich löschen wollen?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button  [mat-dialog-close]="'Schließen'">Abbrechen</button>
+  <span class="example-spacer"></span>
+  <button  mat-raised-button color="warn" (click)="deleteUser()">Löschen</button>
+</mat-dialog-actions>
+
+

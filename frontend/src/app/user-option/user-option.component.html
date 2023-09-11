@@ -1,0 +1,74 @@
+<app-navigation-bar></app-navigation-bar>
+<div>
+
+  <mat-card>
+    <mat-card-title> Nutzerdaten ändern
+      <span class="example-spacer"></span>
+      <button (click)="delete()"
+              mat-icon-button color="warn">
+        <mat-icon matSuffix>delete</mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="updateForm" (ngSubmit)="save()" >
+        <div class="name-fields">
+          <mat-form-field>
+            <mat-label>Vorname</mat-label>
+            <input matInput type="text" placeholder="Vorname" formControlName="firstName">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Nachname</mat-label>
+            <input matInput type="text"  placeholder="Nachname" formControlName="lastName">
+          </mat-form-field>
+        </div>
+
+
+        <h3>Adresse</h3>
+        <div class="name-fields">
+          <mat-form-field>
+            <mat-label>Straße</mat-label>
+            <input matInput type="text" placeholder="Straße" formControlName="street">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Hausnummer</mat-label>
+            <input matInput type="text" placeholder="Hausnummer" formControlName="houseNumber">
+          </mat-form-field>
+        </div>
+        <div class="name-fields">
+          <mat-form-field>
+            <mat-label>Stadt</mat-label>
+            <input matInput type="text" placeholder="Stadt" formControlName="city">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Postleitzahl</mat-label>
+            <input matInput type="text" placeholder="Postleitzahl" formControlName="postalCode">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field>
+          <mat-label>E-Mail</mat-label>
+          <input matInput type="text" placeholder="E-Mail" formControlName="eMail" >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Passwort</mat-label>
+          <input matInput type="password" placeholder="Passwort" formControlName="password">
+          <div>
+          <mat-error *ngIf="updateForm.get('password')?.hasError('pattern')">
+            Passwort muss folgende Kriterien erfüllen:
+            - Mindestens 8 Zeichen
+            - Mindestens 1 Zahl
+            - Mindestens 1 Groß- und 1 Kleinbuchstabe
+          </mat-error>
+</div>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Passwort wiederholen</mat-label>
+          <input matInput type="password" placeholder="Passwort"  formControlName="passwordRe">
+          <mat-error *ngIf="updateForm.hasError('passwordsMismatch')">Die Passwörter stimmen nicht überein.</mat-error>
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" class="button">Speichern</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

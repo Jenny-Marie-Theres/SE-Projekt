@@ -1,0 +1,15 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-button {
+  flex: 1;
+  padding: 30px;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+}

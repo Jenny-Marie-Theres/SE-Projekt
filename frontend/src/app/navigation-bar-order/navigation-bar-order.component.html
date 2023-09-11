@@ -1,0 +1,20 @@
+<div class="button-container">
+  <button mat-flat-button color="primary" class="top-button" (click)="emitButtonClick('Individuell')">
+    <div class="button-content">
+      Individuell Zusammenstellen
+      <img src="../assets/cats/Individuell.png" alt="Individuell">
+    </div>
+  </button>
+  <button mat-flat-button color="primary" class="top-button" (click)="emitButtonClick('Sushi-Auswahl')">
+    <div class="button-content">
+      Fertige Sushi-Auswahl
+      <img src="../assets/cats/Sushi-Auswahl.png" alt="Sushi-Auswahl">
+    </div>
+  </button>
+  <button mat-flat-button color="primary" class="top-button" *ngIf="checkToken()" (click)="emitButtonClick('Favoriten')">
+    <div class="button-content">
+      Favoritensushi
+      <img src="../assets/cats/Nigiri.png" alt="Favoriten">
+    </div>
+  </button>
+</div>

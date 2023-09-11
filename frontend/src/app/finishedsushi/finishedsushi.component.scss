@@ -1,0 +1,50 @@
+mat-form-field{
+  margin-left: 85%;
+margin-top: 1%;
+  align-items: center;
+
+}
+table {
+  margin-top: 4px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  padding: 8px; /* Fügt etwas Abstand um die Zellen herum hinzu */
+  text-align: center; /* Zentriert den Text in den Zellen */
+  border: 1px solid #ccc; /* Fügt einen dünnen Rahmen um die Zellen hinzu */
+}
+
+th {
+  background-color: pink; /* Hintergrundfarbe für die Tabellenkopfzeile */
+}
+
+
+td{
+  background-color: whitesmoke;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.disabled-button {
+  background-color: #f5f5f5;
+  color: #777777;
+  pointer-events: none;
+}
+
+.anzahlInput{
+  width: 15%;
+}
+
+.Anzahl{
+  width: 15%;
+}
+button{
+  margin: auto;
+}

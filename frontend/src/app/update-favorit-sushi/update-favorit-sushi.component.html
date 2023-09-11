@@ -1,0 +1,58 @@
+<app-navigation-bar></app-navigation-bar>
+
+  <mat-toolbar color="primary">
+
+
+    <mat-form-field>
+    <input class="text" matInput type="text" placeholder="Name vom Sushi" [(ngModel)]="searchTerm"(ngModelChange)="filterSushiList()">
+    <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+
+  </mat-toolbar>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Füllung</th>
+      <th>Ummantelung</th>
+      <th>Soße</th>
+      <th>Frittiert</th>
+      <th>Preis</th>
+      <th>Bearbeiten</th>
+      <th>Löschen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let sushi of (searchTerm ? filteredSushiList : sushiFav); let i = index">
+    <tr>
+      <td>{{ sushi.name }}</td>
+      <td>{{ sushi.fillings }}</td>
+      <td>{{ sushi.outside }}</td>
+      <td>{{ sushi.sauce }}</td>
+      <td>{{ sushi.fried ? 'Ja' : 'Nein' }}</td>
+      <td>{{ prices[i] }} €</td>
+      <td class = "edit"><button (click)="updateSushi(sushi)"
+                  mat-icon-button color="primary">
+        <mat-icon matSuffix>edit</mat-icon>
+      </button></td>
+      <td class = "delete"><button (click)="deleteFavSushi(sushi)"
+                                 mat-icon-button color="warn">
+        <mat-icon matSuffix>delete</mat-icon>
+      </button></td>
+    </tr>
+    </ng-container>
+    </tbody>
+    <td><button (click)="createSushi()"
+                mat-raised-button
+                color="primary">
+      weitere Sushis hinzufügen
+      <mat-icon matSuffix>add</mat-icon>
+    </button></td>
+  </table>
+
+
+
+
+
+

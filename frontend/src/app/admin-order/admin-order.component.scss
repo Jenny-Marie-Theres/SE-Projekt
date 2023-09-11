@@ -1,0 +1,42 @@
+mat-form-field{
+  margin-left: 85%;
+  margin-top: 1%;
+
+}
+table {
+  margin-top: 4px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+th, td {
+  padding: 8px; /* Fügt etwas Abstand um die Zellen herum hinzu */
+  text-align: center; /* Zentriert den Text in den Zellen */
+  border: 1px solid #ccc; /* Fügt einen dünnen Rahmen um die Zellen hinzu */
+}
+
+th {
+  background-color: pink; /* Hintergrundfarbe für die Tabellenkopfzeile */
+}
+
+
+td{
+  background-color: whitesmoke;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-button {
+  flex: 1;
+  padding: 30px;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+}

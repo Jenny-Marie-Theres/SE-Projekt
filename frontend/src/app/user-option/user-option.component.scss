@@ -1,0 +1,56 @@
+
+mat-card{
+  width: 30%;
+  margin: 5% auto;
+  border-radius: 10px;
+  background-color: pink;
+  margin-top: 5%;
+}
+
+mat-card-title{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+mat-card-content{
+  margin-top: 20px;
+}
+
+mat-form-field{
+  width: 80%;
+  display: block!important;
+  margin: auto;
+
+  align-items: center;
+
+}
+//.example-spacer {
+//  flex: 1 1 auto;
+//}
+mat-icon {
+  margin-left: 150px;
+}
+
+.button{
+  margin-top: 2%;
+  margin-bottom: 3%;
+  width: 80%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  justify-content: center;
+}
+
+.name-fields{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+

@@ -1,0 +1,22 @@
+
+
+<mat-toolbar color="primary">
+
+        <button *ngIf="checkToken()" (click)="toUserUpdate()" mat-icon-button >
+          <mat-icon>settings-icon</mat-icon>
+        </button>
+         <img src="../assets/cats/LogoCatt.png" alt="Bildbeschreibung">
+        <span>NekoSushi</span>
+        <button (click)="toOrder()" mat-icon-button >
+         <mat-icon>home</mat-icon>
+         </button>
+       <button *ngIf="checkToken()" (click)="toFavoriteSushiUpdate()" mat-icon-button >
+       <mat-icon>favorite</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button (click)="logOut()" mat-icon-button >
+          <mat-icon>logout-icon</mat-icon>
+        </button>
+
+    </mat-toolbar>
+

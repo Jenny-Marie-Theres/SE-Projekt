@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+
+
+  <mat-form-field>
+    <input class="text" matInput type="text" placeholder="Name vom Sushi" [(ngModel)]="searchTerm"(ngModelChange)="filterSushiList()">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+</mat-toolbar>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Füllung</th>
+      <th>Ummantelung</th>
+      <th>Soße</th>
+      <th>Frittiert</th>
+      <th>Preis</th>
+      <th>Anzahl</th>
+      <th>Hinzufügen</th>
+    </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let sushi of (searchTerm ? filteredSushiList : sushiFav); let i = index">
+        <tr>
+      <td>{{ sushi.name }}</td>
+      <td>{{ sushi.fillings }}</td>
+      <td>{{ sushi.outside }}</td>
+      <td>{{ sushi.sauce }}</td>
+      <td>{{ sushi.fried ? 'Ja' : 'Nein' }}</td>
+      <td>{{ prices[i] }} €</td>
+      <td class="Anzahl"><input class="anzahlInput" type="number" [(ngModel)]="sushi.count"  min="0" ></td>
+      <td><button (click)="addToOrder(sushi)"
+                  mat-icon-button
+                  color="primary"
+                  [ngClass]="{'disabled-button': sushi.count <= 0}">
+        <mat-icon matSuffix>add_shopping_cart</mat-icon>
+      </button></td>
+    </tr>
+      </ng-container>
+    </tbody>
+  </table>
+

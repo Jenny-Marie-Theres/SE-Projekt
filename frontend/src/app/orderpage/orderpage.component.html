@@ -1,0 +1,18 @@
+
+  <app-navigation-bar></app-navigation-bar>
+  <mat-toolbar color="primary">
+    <span class="example-spacer"></span>
+    <span>Summe: {{totalPrice | number: '1.2-2'}} €</span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button (click)="toShoppingCart()" class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+  <app-navigation-bar-order (buttonClick)="onButtonClick($event)"></app-navigation-bar-order>
+  <app-create-sushi *ngIf="showSushiComponent"></app-create-sushi>
+  <app-finishedsushi *ngIf="showFinishedSushiComponent"></app-finishedsushi>
+  <app-favoritsushi *ngIf="showFavoritSushi"></app-favoritsushi>
+
+
+

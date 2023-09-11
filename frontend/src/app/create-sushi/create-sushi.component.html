@@ -1,0 +1,186 @@
+
+  <mat-stepper linear #stepper>
+    <mat-step >
+        <ng-template matStepLabel>Füllung wählen</ng-template>
+          <table>
+            <tbody>
+            <ng-container *ngFor="let fillingOption of fillingOptions; let last = last">
+              <tr>
+                <td colspan="4">
+                  <mat-checkbox [value]="fillingOption" (change)="addToSelectedFillings(fillingOption)">
+                  </mat-checkbox>
+                </td>
+                <td>
+                  <div class="background">
+                  <ng-container *ngIf="fillingOption === '-' else sushiImage">
+                    <img src="../assets/cats/no.png" alt="nein">
+                  </ng-container>
+                  <ng-template #sushiImage>
+                    <img src="../assets/sushi/{{ fillingOption }}.png" alt="{{ fillingOption }}">
+                  </ng-template>
+                  </div>
+                </td>
+                <td>{{ fillingOption }}</td>
+                <td>{{ sushiPricesFilling[fillingOption] }} €</td>
+              </tr>
+              <tr *ngIf="!last">
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        <div>
+          <button class="next" mat-raised-button color="primary" matStepperNext>Weiter</button>
+        </div>
+    </mat-step>
+
+    <mat-step [stepControl]="outsideFormGroup" >
+      <form [formGroup]=" outsideFormGroup">
+        <ng-template matStepLabel>Ummantelung wählen</ng-template>
+        <mat-radio-group formControlName="selectedOutside">
+          <table>
+            <tbody>
+            <ng-container *ngFor="let outsideOption of outsideOptions; let last = last">
+              <tr>
+                <td colspan="4">
+                  <mat-radio-button [value]="outsideOption" (change)="addToSelectedOutside(outsideOption)">
+                  </mat-radio-button>
+                </td>
+                <td>
+                  <ng-container *ngIf="outsideOption === '-' else sushiImage">
+                    <img src="../assets/cats/no.png" alt="nein">
+                  </ng-container>
+                  <ng-template #sushiImage>
+                    <img src="../assets/sushi/{{ outsideOption }}.png" alt="{{ outsideOption }}">
+                  </ng-template>
+                </td>
+                <td>{{ outsideOption }}</td>
+                <td>{{ sushiPricesOutside[outsideOption] }} €</td>
+              </tr>
+              <tr *ngIf="!last">
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </mat-radio-group>
+          <div>
+          <button  class="back" mat-raised-button matStepperPrevious>Back</button>
+            <button class="next" mat-raised-button color="primary" matStepperNext>Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="sauceFormGroup" >
+      <form [formGroup]="sauceFormGroup">
+        <ng-template matStepLabel>Soße wählen</ng-template>
+        <mat-radio-group formControlName="selectedSauce">
+          <table>
+            <tbody>
+            <ng-container *ngFor="let sauceOption of sauceOptions; let last = last">
+              <tr>
+                <td colspan="4">
+                  <mat-radio-button [value]="sauceOption" (change)="addToSelectedSauce(sauceOption)">
+                  </mat-radio-button>
+                </td>
+                <td>
+                  <ng-container *ngIf="sauceOption === '-' else sushiImage">
+                    <img src="../assets/cats/no.png" alt="nein">
+                  </ng-container>
+                  <ng-template #sushiImage>
+                    <img src="../assets/sushi/{{ sauceOption }}.png" alt="{{ sauceOption }}">
+                  </ng-template>
+                </td>
+                <td>{{ sauceOption }}</td>
+                <td>{{ sushiPricesSauce[sauceOption] }} €</td>
+              </tr>
+              <tr *ngIf="!last">
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </mat-radio-group>
+        <div>
+          <button  class="back" mat-raised-button matStepperPrevious>Back</button>
+          <button class="next" mat-raised-button color="primary" matStepperNext>Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="friedFormGroup">
+      <form [formGroup]="friedFormGroup">
+        <ng-template matStepLabel>Frittieren</ng-template>
+        <mat-radio-group formControlName="fried">
+          <table>
+            <tbody>
+            <tr>
+              <td colspan="4">
+                <mat-radio-button [value]="true" (change)="addToSelectedFried(true)">
+                </mat-radio-button>
+              </td>
+              <td>
+                <img src="../assets/cats/fried.png" alt="ja">
+              </td>
+              <td>Frittieren</td>
+              <td>0.5 €</td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <mat-radio-button [value]="false" (change)="addToSelectedFried(false)">
+                </mat-radio-button>
+              </td>
+              <td>
+                <img src="../assets/cats/no.png" alt="nein">
+              </td>
+              <td>Nicht frittieren</td>
+              <td> 0 €</td>
+            </tr>
+            </tbody>
+          </table>
+        </mat-radio-group>
+        <div>
+          <button class="back" mat-raised-button matStepperPrevious>Back</button>
+          <button class="next" mat-raised-button color="primary" matStepperNext>Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel> Übersicht </ng-template>
+
+      <div class="confirmation-details">
+        <img class="leftCat" src="../assets/cats/übersicht.png" alt="katze">
+        <p class="detail-label">Ihre Kreation</p>
+
+        <p class="detail-label">Füllungen:</p>
+        <p class="detail-value" *ngFor="let filling of selectedFillings">{{ filling }}</p>
+
+        <p class="detail-label">Ummantelung:</p>
+        <p class="detail-value">{{selectedOutside}}</p>
+
+        <p class="detail-label">Soße:</p>
+        <p class="detail-value">{{selectedSauce}}</p>
+
+        <p class="detail-label">Frittieren:</p>
+        <p class="detail-value">{{ selectedFried ? 'Ja' : 'Nein' }}</p>
+
+        <img class="RightCat" src="../assets/cats/übersicht.png" alt="katze">
+      </div>
+
+      <div class="input-section">
+        <mat-label>Wie viele Sushis dürfen es sein? </mat-label>
+          <input matInput type="number" placeholder="Anzahl" [(ngModel)]="count"  min="0"/>
+        <button (click)="addToOrder(count)"
+                    mat-icon-button
+                    color="primary"
+                    [ngClass]="{'disabled-button': count <= 0}">
+          <mat-icon matSuffix>add_shopping_cart</mat-icon>
+        </button>
+      </div>
+
+      <div>
+        <button class="back" mat-raised-button matStepperPrevious>Back</button>
+        <button class="new" mat-raised-button color="primary" (click)="stepper.reset()">neue Kreation erstellen</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+

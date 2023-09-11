@@ -1,0 +1,34 @@
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+
+      <img src="../assets/cats/LogoCatt.png" alt="Bildbeschreibung">
+      <span>NekoSushi</span>
+      <button (click)="toHome()" mat-icon-button >
+        <mat-icon>home</mat-icon>
+      </button>
+
+      <span class="example-spacer"></span>
+      <button (click)="logout()"  mat-icon-button >
+        <mat-icon>logout-icon</mat-icon>
+      </button>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <div class="button-container">
+        <button (click)="emitButtonClick('sushi')" mat-raised-button color="primary" class="top-button">
+          <div class="button-content">
+            Sushi
+            <img src="../assets/cats/Individuell.png" alt="Bildbeschreibung">
+          </div>
+        </button>
+        <button (click)="emitButtonClick('order')" mat-raised-button color="primary" class="top-button" >
+          <div class="button-content">
+            Bestellungen
+            <img src="../assets/cats/Sushi-Auswahl.png" alt="Bildbeschreibung">
+          </div>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+

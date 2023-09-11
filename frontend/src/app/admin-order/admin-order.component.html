@@ -1,0 +1,64 @@
+<div class="button-container">
+  <button mat-raised-button color="primary" class="top-button" (click)="emitButtonClick('Erhaltene Bestellungen')">
+    <div class="button-content">
+      Erhaltene Bestellungen
+    </div>
+  </button>
+  <button mat-raised-button color="primary" class="top-button" (click)="emitButtonClick('Bestellung in Bearbeitung')">
+    <div class="button-content">
+      Bestellung in Bearbeitung
+    </div>
+  </button>
+  <button mat-raised-button color="primary" class="top-button" (click)="emitButtonClick('Alle Bestellungen')">
+    <div class="button-content">
+      Alle Bestellungen
+    </div>
+  </button>
+</div>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Bestellte Sushi</th>
+    <th>Anzahl</th>
+    <th>Preis</th>
+    <th>Adresse</th>
+    <th>Nachname</th>
+    <th>Status</th>
+    <th>Bearbeiten</th>
+    <th>Löschen</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td>
+      <ul>
+<!--        TODO stück nach testen löschen-->
+        <li *ngFor="let sushiOrder of order.orderItems">
+          {{ sushiOrder.sushi.name }} ({{ sushiOrder.count }} Stück)
+        </li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li *ngFor="let sushiOrder of order.orderItems">
+          {{ sushiOrder.count }} Stück
+        </li>
+      </ul>
+    </td>
+    <td>{{ order.totalPrice }}</td>
+    <td>{{ order.address.street }} {{ order.address.houseNumber }}, {{ order.address.city }} {{ order.address.postalCode }}</td>
+    <td>{{ order.lastName }}</td>
+    <td>{{ order.status }}</td>
+    <td class = "edit"><button (click)="updateOrder(order)"
+                               mat-icon-button color="primary">
+      <mat-icon matSuffix>edit</mat-icon>
+    </button></td>
+    <td class = "delete"><button (click)="deleteOrder(order)"
+                                 mat-icon-button color="warn">
+      <mat-icon matSuffix>delete</mat-icon>
+    </button></td>
+  </tr>
+  </tbody>
+</table>

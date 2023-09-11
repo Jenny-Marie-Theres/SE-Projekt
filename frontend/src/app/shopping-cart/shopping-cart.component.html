@@ -1,0 +1,50 @@
+<app-navigation-bar></app-navigation-bar>
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Füllung</th>
+    <th>Ummantelung</th>
+    <th>Soße</th>
+    <th>Frittiert</th>
+    <th>Preis für ein Sushi</th>
+    <th>Anzahl</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of sushiOrders; let i = index">
+     <td>{{ i + 1 }}</td>
+    <td>{{ order.sushi.name }}</td>
+    <td>{{ order.sushi.fillings }}</td>
+    <td>{{ order.sushi.outside }}</td>
+    <td>{{ order.sushi.sauce }}</td>
+    <td>{{ order.sushi.fried ? 'Ja' : 'Nein' }}</td>
+    <td>{{ prices[i] }} €</td>
+    <td>{{ order.count }}</td>
+  </tr>
+  </tbody>
+  <td><button (click)="toOrder()"
+              mat-raised-button
+              color="primary">
+    Weiter einkaufen
+  </button></td>
+  <td colspan="6"></td>
+  <td >Preis insgesamt: {{totalPrice | number: '1.2-2'}} €</td>
+</table>
+<button class="orderBut" (click)="toAddress()"
+        mat-raised-button
+        color="primary">
+  Bestellen
+</button>
+
+
+
+
+
+

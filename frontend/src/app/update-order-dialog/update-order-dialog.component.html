@@ -1,0 +1,19 @@
+<div class="test">
+  <h2 mat-dialog-title>{{data.name}} Bearbeiten</h2>
+
+  <mat-dialog-content>
+    <mat-form-field>
+      <label>Status</label>
+      <mat-select [(ngModel)]="order.status" >
+        <mat-option *ngFor="let status of statusarr" [value]="status">{{ status }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button  mat-raised-button (click)="onCancelClick()">Abbrechen</button>
+    <span class="example-spacer"></span>
+    <button  mat-raised-button color="primary" (click)="onSaveClick()">Speichern</button>
+  </mat-dialog-actions>
+
+</div>
+

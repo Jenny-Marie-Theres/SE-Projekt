@@ -1,0 +1,49 @@
+<div class="test">
+  <h2 mat-dialog-title>{{data.name}} bearbeiten</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="nameFormGroup">
+  <mat-form-field>
+    <label>Name</label>
+    <input matInput formControlName="sushiName"/>
+    <mat-error *ngIf="nameFormGroup.get('sushiName')?.hasError('notUnique')">
+      Der Name ist nicht eindeutig. Bitte wählen Sie einen anderen Namen
+    </mat-error>
+  </mat-form-field>
+  </form>
+
+  <mat-form-field>
+    <label>Füllung</label>
+    <mat-select [(ngModel)]="sushi.fillings" multiple>
+      <mat-option *ngFor="let filling of fillingOptions" [value]="filling">{{ filling }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Ummantelung</label>
+    <mat-select [(ngModel)]="sushi.outside" >
+      <mat-option *ngFor="let outside of outsideOptions" [value]="outside">{{ outside }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Soße</label>
+    <mat-select [(ngModel)]="sushi.sauce" >
+      <mat-option *ngFor="let sauce of sauceOptions" [value]="sauce">{{ sauce }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!--  <mat-form-field>-->
+<!--    <label>Frittiert</label>-->
+    <mat-checkbox [(ngModel)]="sushi.fried">Frittiert</mat-checkbox>
+<!--  </mat-form-field>-->
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button  mat-raised-button (click)="onCancelClick()">Abbrechen</button>
+  <span class="example-spacer"></span>
+  <button  mat-raised-button color="primary" (click)="onSaveClick()">Speichern</button>
+</mat-dialog-actions>
+
+</div>
